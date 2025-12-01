@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool drop;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -75,6 +76,11 @@ namespace StarterAssets
 		{
 			Cursor.lockState = newState ? CursorLockMode.Locked : CursorLockMode.None;
 		}
-	}
+
+        public void OnDrop(InputValue value)
+        {
+            drop = true;
+        }
+    }
 	
 }

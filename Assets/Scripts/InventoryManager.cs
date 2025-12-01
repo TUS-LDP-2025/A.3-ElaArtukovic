@@ -11,6 +11,8 @@ public class InventoryManager : MonoBehaviour
     public event Action<InventoryItem> OnItemAdded;
     public event Action<InventoryItem> OnActiveItemChanged;
 
+
+
     [SerializeField]
     private int activeItemIndex = -1;      //keeps track of which is active, set to minus so its invalid - hasnt been set
 
@@ -52,6 +54,7 @@ public class InventoryManager : MonoBehaviour
 
     public void DropItem()
     {
+        
         Debug.Log($"Dropping {inventory[activeItemIndex].typeItem.ElementName}");
     }
 

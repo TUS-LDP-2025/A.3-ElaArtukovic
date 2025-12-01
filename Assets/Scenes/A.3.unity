@@ -907,11 +907,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory:
-  - typeItem: {fileID: 11400000, guid: 8d74e4da042829d42975d8f3073ef9ba, type: 2}
+  - typeItem: {fileID: 0}
     quantity: 0
-  - typeItem: {fileID: 11400000, guid: 9966410037b7988409ec31473f34b381, type: 2}
+  - typeItem: {fileID: 0}
     quantity: 0
-  - typeItem: {fileID: 11400000, guid: 426299f17f4e7b44091c2e2befd02680, type: 2}
+  - typeItem: {fileID: 0}
     quantity: 0
   activeItemIndex: -1
 --- !u!114 &1493894566

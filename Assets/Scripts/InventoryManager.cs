@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-
-    public List<InventoryItem> inventory;         //list of inventory items
+    [SerializeField]
+    public List<InventoryItem> inventory = new List<InventoryItem>();         //list of inventory items
 
     public event Action<InventoryItem> OnItemAdded;
     public event Action<InventoryItem> OnActiveItemChanged;
@@ -18,9 +18,8 @@ public class InventoryManager : MonoBehaviour
     {
         Debug.Log("Adding item " + itemToAddSO.ElementName);   //debug to see what is being added
 
-        InventoryItem theInvetoryItem = inventory.Find(itemInList => itemInList.typeItem.ElementName == itemToAddSO.ElementName);   //pass the first item on list and check if the 
-                                                                                                                                  //display name of it matches with the name we are
-                                                                                                                                  //looking for, if not move onto next one in list
+        InventoryItem theInvetoryItem = inventory.Find(itemInList => itemInList.typeItem.ElementName == itemToAddSO.ElementName);   //pass the first item on list and check if the display name of it matches with the name we are looking for, if not move onto next one in list
+                                                                                                                                    
 
         //item will be either null or equal to item already in the inventory
         if (theInvetoryItem != null)              //not null so we already have it, add quantity
@@ -39,7 +38,7 @@ public class InventoryManager : MonoBehaviour
         //need to invoke event 
         // if (OnItemAdded != null)         //if there is an item we can add
         //{
-        //OnItemAdded.Invoke(theInvetoryItem);      //pass item we have just added or updated
+        //OnItemAdded.Invoke(theInvetoryItem);      //pass item we have just added or updated             InventoryItem theInvetoryItem = inventory.Find(itemInList => itemInList.typeItem.ElementName == itemToAddSO.ElementName);
         //}
 
         OnItemAdded?.Invoke(theInvetoryItem);
@@ -68,7 +67,7 @@ public class InventoryManager : MonoBehaviour
 
 }
 
-
+[System.Serializable]
 public class InventoryItem
 {
     public CollectableItem typeItem;

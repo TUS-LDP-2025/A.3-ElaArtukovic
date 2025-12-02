@@ -906,13 +906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74ca973b762a74c4c8ef3655ca7ec1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory:
-  - typeItem: {fileID: 0}
-    quantity: 0
-  - typeItem: {fileID: 0}
-    quantity: 0
-  - typeItem: {fileID: 0}
-    quantity: 0
+  inventory: []
   activeItemIndex: -1
 --- !u!114 &1493894566
 MonoBehaviour:

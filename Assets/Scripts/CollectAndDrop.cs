@@ -35,9 +35,28 @@ public class CollectAndDrop : MonoBehaviour
 
     private void DropItem()
     {
-
+        invManager.ItemRemoved();
     }
-   
+
+    private void OnTriggerEnter(Collider other)
+    {
+        CollectableItem collectable = other.GetComponent<CollectableItem>();
+        if (collectable != null)
+        {
+            itemTC = collectable;
+            inRange = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        CollectableItem collectable = other.GetComponent<CollectableItem>();
+        if (collectable == itemTC)
+        {
+            itemTC = null;
+            inRange = false;
+        }
+    }
 
 
 }

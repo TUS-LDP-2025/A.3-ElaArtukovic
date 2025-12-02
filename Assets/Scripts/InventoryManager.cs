@@ -57,7 +57,7 @@ public class InventoryManager : MonoBehaviour
         }
         
 
-        Vector3 dropPosition = transform.position + transform.forward * 1f;                         //drop it at the players position in front of them 
+        Vector3 dropPosition = transform.position + transform.forward * 2f;                         //drop it at the players position in front of them 
         Instantiate(itemToRemove.typeItem.elementPrefab, dropPosition, Quaternion.identity);        //instantiate to spawn a prefab of the boxes      //the item to remove is a collectable item - typeItem      //quanterion identity should have no rotations
 
         Debug.Log($"Dropping {inventory[activeItemIndex].typeItem.ElementName}");          

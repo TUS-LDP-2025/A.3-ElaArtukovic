@@ -37,12 +37,6 @@ public class InventoryManager : MonoBehaviour
             inventory.Add(theInvetoryItem);                 //add to inventory list
         }
 
-        //need to invoke event 
-        // if (OnItemAdded != null)         //if there is an item we can add
-        //{
-        //OnItemAdded.Invoke(theInvetoryItem);      //pass item we have just added or updated             InventoryItem theInvetoryItem = inventory.Find(itemInList => itemInList.typeItem.ElementName == itemToAddSO.ElementName);
-        //}
-
         OnItemAdded?.Invoke(theInvetoryItem);
 
         if (activeItemIndex == -1)       //if it hasnt been set yet

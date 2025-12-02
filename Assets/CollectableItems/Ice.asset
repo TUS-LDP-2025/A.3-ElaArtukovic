@@ -16,3 +16,4 @@ MonoBehaviour:
   value: 10
   color: {r: 0.5596298, g: 0.7917769, b: 0.9056604, a: 0}
   icon: {fileID: 21300000, guid: 59ea8f22b10bca64b80ad992c3a55f9b, type: 3}
+  elementPrefab: {fileID: 8789990364221171600, guid: d7fc3c0b0811ee745be9e2e85af1d510, type: 3}

@@ -25,9 +25,11 @@ public class CollectAndDrop : MonoBehaviour
 
     private void CollectItem()
     {
-        if (itemTC != null)          
+        if (itemTC != null)                   //if item is collected and its not null, add the item to collect to the inventory 
         {
-
+            invManager.ItemAdded(itemTC);
+            itemTC = null;
+            inRange = false;
         }
     }
 

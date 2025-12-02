@@ -1,65 +1,35 @@
 using StarterAssets;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
 
 public class CollectableInteractor : MonoBehaviour           //handle interactions when we hit of objects, picking up and dropping
 {
 
-    public InventoryManager invManager;
-    private CollectableItem itemTC;             //named it TC for TO COLLECT
-    private bool inRange = false;            //need for player check 
+    public InventoryManager inventoryManager;      //reference to the inventory manager
+    public StarterAssetsInputs _inputs;
+    public CollectableItem theItem;                //reference to scriptable object
+                                                   // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
-    public void OnCollect(InputAction.CallbackContext context)          //set LMB for collecting and RMB for dropping
+    // Update is called once per frame
+    void Update()
     {
-        if (context.performed && inRange)             //if LMB is presed and the player is in range then collect item
+        if (_inputs.drop == true)
         {
-            CollectItem();
+            inventoryManager.ItemRemoved();
+            _inputs.drop = false;
         }
     }
 
-    public void OnDrop(InputAction.CallbackContext context)
-    {
-        if (context.performed)               //if RMB is pressed then drop item
-        {
-            DropItem();
-        }
-    }
+   
 
-    private void CollectItem()
+    private void OnTriggerEnter(Collider other)        //if player collides with gameobjects
     {
-        if (itemTC != null)                   //if an iten can be collected/not null, add the item to collect to the inventory using InvMan logic
-        {
-            invManager.ItemAdded(itemTC);
-            itemTC = null;                       //reset it so more can be collected and it doesn't think the item i collected is still there
-            inRange = false;
-        }
-    }
+        CollectableItem theItem;                                            //reference to class collectable item with the item
+        theItem = other.GetComponent<CollectableController>().objectSO;       //the item being reference to scriptable object from collectable controller
 
-    private void DropItem()
-    {
-        invManager.ItemRemoved();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        CollectableItem collectable = other.GetComponent<CollectableItem>();           //get collectible item component from other object, if it has one then set TC to the collectible and make it in range
-        if (collectable != null)
-        {
-            itemTC = collectable;
-            inRange = true;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        CollectableItem collectable = other.GetComponent<CollectableItem>();            //if item leaving is same as one in range(TC == collectable) then clear it and set it no longer in range 
-        if (collectable == itemTC)
-        {
-            itemTC = null;
-            inRange = false;
-        }
+        inventoryManager.ItemAdded(theItem);          //add the item to inventory manager
+        Destroy(other.gameObject);                 //destroy the gameobject so it looks like we picked it up
     }
 }

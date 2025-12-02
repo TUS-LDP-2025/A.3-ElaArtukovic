@@ -49,6 +49,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Collect",
+                    "type": "Button",
+                    "id": "ffa4ed28-10c6-42a2-8b4f-b8b200f18a2a",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -231,11 +240,22 @@
                 {
                     "name": "",
                     "id": "09f3d859-cd03-4660-a13b-0c73d4c79a44",
-                    "path": "<Keyboard>/e",
-                    "interactions": "",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
                     "action": "Drop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4628eeab-d8ac-444c-9ad9-760a150d6c34",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Collect",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

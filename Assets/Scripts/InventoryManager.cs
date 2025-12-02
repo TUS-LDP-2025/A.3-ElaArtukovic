@@ -31,9 +31,8 @@ public class InventoryManager : MonoBehaviour
 
         else
         {
-            theInvetoryItem = new InventoryItem(itemToAddSO, 1);             //no inventory item so add one
-                                                           //the scriptable object is now the item that is to be added 
-                                                          //the quantity which we are adding
+            theInvetoryItem = new InventoryItem(itemToAddSO, 1);           //no item so add new and add for this quantity  
+                                                         
             inventory.Add(theInvetoryItem);                 //add to inventory list
         }
 

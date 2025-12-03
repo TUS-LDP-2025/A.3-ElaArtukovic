@@ -57,15 +57,15 @@ public class CollectableInteractor : MonoBehaviour           //handle interactio
 
     private void DropItem()
     {
-        inventoryManager.ItemRemoved();
+        inventoryManager.ItemRemoved();        //remove item from inv 
     }
 
 
     private void OnTriggerEnter(Collider other)        //if player collides with gameobjects
     {
-        CollectableItem theItem;                                            //reference to class collectable item with the item
+                                                  
         theItem = other.GetComponent<CollectableController>().objectSO;       //the item being reference to scriptable object from collectable controller
-
+        inRange = true;
         inventoryManager.ItemAdded(theItem);          //add the item to inventory manager
         Destroy(other.gameObject);                 //destroy the gameobject so it looks like we picked it up
     }

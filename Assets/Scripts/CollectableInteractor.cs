@@ -51,6 +51,7 @@ public class CollectableInteractor : MonoBehaviour           //handle interactio
             inventoryManager.ItemAdded(theItem);
             theItem = null;                       //reset it so more can be collected and it doesn't think the item i collected is still there
             inRange = false;
+            Destroy(gameObject);
         }
     }
 
@@ -65,7 +66,7 @@ public class CollectableInteractor : MonoBehaviour           //handle interactio
                                                   
         theItem = other.GetComponent<CollectableController>().objectSO;       //the item being reference to scriptable object from collectable controller
         inRange = true;                            //if it collides then its in range
-        inventoryManager.ItemAdded(theItem);          //add the item to inventory manager        //this might be telling it to do it anytime it collides ughhhh
-        Destroy(other.gameObject);                 //destroy the gameobject so it looks like we picked it up
+        //inventoryManager.ItemAdded(theItem);          //add the item to inventory manager        //this might be telling it to do it anytime it collides ughhhh
+        //Destroy(other.gameObject);                 //destroy the gameobject so it looks like we picked it up
     }
 }
